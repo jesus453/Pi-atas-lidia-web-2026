@@ -1,0 +1,525 @@
+
+//Piñatas lidia  
+//variables de colores 
+$base: #060a0f; 
+$sec: #494949; 
+$outline: #ff6500; 
+$text: transparentize ($sec, .5); 
+
+//estilos generales 
+a{
+    margin: 0px;
+    padding: 0px;
+    &:hover{
+        color: green;
+    }
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: $base;
+}
+
+p{
+    color: #060a0f;
+}
+
+.tslow{
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.pad_200{
+    padding: 200px 0px;
+
+}
+
+.center{
+    text-align: center;
+    margin: 0px auto;
+}
+
+.main-title{
+    font-size: 40px;
+    font-weight: bold;
+    color:$base;
+}
+
+//barra de navegación 
+nav{
+    width: 100%;
+    background-color: transparent; 
+    padding: 10px 0px;
+    position: fixed;
+    border-bottom: 1px solid transparent;
+    z-index: 100;
+    //animación de la barra de animación 
+    @extend .tslow; 
+    &:hover{
+        background-color: paleturquoise;
+        padding: 15px 0px;
+        border: 1px solid transparentize($color: $base, $amount: .9);
+        .logo{
+            img{
+                width: 30%;
+            }
+        } 
+
+        ul{
+            margin-top: 8px;
+            li{
+                a{
+                    color: $text;
+                }
+            }
+        }
+//////////////////////////////////////////////////////////
+    }
+    .logo{
+        img{
+            width: 30%;
+            @extend .tslow; 
+        }
+    }
+
+    ul{
+        margin: 0px;
+        margin-top: 12px;
+        padding: 0px;
+        text-align: right;
+        @extend .tslow; 
+        .link-active{
+            a{
+                color: $base !important;
+                width: 100%;
+                background-color: transparent;
+                @extend .tslow; 
+            }
+        } 
+
+        li{
+            display: inline-block;
+            padding: 0px 10px;
+            a{
+                position: relative;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 16px;
+                color: $text;
+                @extend .tslow; 
+                &:before{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    background-color: transparent;
+                    height: 1px;
+                    @extend .tslow; 
+                }
+                &:after{
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 0px;
+                    width: 100%;
+                    //background-color: red;
+                    height: 1px;
+                    @extend .tslow; 
+                }
+                &:hover{
+                    background-color: transparent;
+                    text-decoration: none;
+                    color: $base;
+                    &:before{
+                        width: 0%;
+                        background-color: $base;
+                    }
+                    &:after{
+                        width: 100%;
+                        background-color: $base;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav-overlay{
+    background-color: white;
+    border-bottom: 1px solid transparentize($color: $base, $amount: .9);
+    padding: 5px 0px;
+    .logo{
+        img{
+            width: 40%;
+        }
+    }
+    ul{
+        margin-top: 8px;
+        li{
+            a{
+                color: $text;
+            }
+        }
+    }
+}
+
+#slider{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+#slippry{
+    height: 500px !important;
+}
+
+#slippry li {
+    height: 500px !important;
+}
+
+#slider img{
+    width: 100% !important;
+    height: 500px !important; 
+    object-fit: cover;
+}
+
+//estilos a los input 
+input, select, option, textarea{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid $base;
+    margin: 5px 0px;
+    opacity: .5;
+    @extend .tslow; 
+    &:hover, &:focus{
+        opacity: 1;
+        color: $base;
+    }
+}
+
+textarea{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 150px;
+    max-height: 250px;
+}
+
+
+
+button{
+    background-color: transparent;
+    text-transform: uppercase;
+    background-color: green;
+    border: 1px solid $base;
+    cursor: pointer;
+    @extend .tslow; 
+    &:hover{
+        opacity: 1;
+        background-color: $base;
+        color: white;
+    }
+}
+
+.black{
+    background-color: $base;
+    opacity: 1;
+    color: white;
+    &:hover{
+        background-color: $outline;
+        border: 1px solid $outline;
+    }
+}
+
+/// estilos slider slippery 
+#slider{
+    backface-visibility: hidden;
+    -webkit-clip-path: polygon(100% 0%, 100% 100%, 50% 85% ,0% 100% ,0% 0%);
+    -o-clip-path: polygon(100% 0%, 100% 100%, 50% 85% ,0% 100% ,0% 0%);
+    clip-path:polygon(100% 0%, 100% 100%, 50% 85% ,0% 100% ,0% 0%);
+}
+
+#slippry{ 
+    position: relative;
+    h1, h2, h3, h4, h5, h6, a, p, button{
+        position: absolute;
+    }
+
+    p{
+        width: 600px;
+    }
+
+    .white_bg{
+        background-color: transparentize(white , .2);
+        padding: 5px 10px;
+    }
+
+    .left{
+        left: 200px;
+    }
+
+    .right{
+        right: 200px;
+    }
+
+    .top_250{
+        top: 250px;
+    }
+
+    .top_300{
+        top: 300px;
+    }
+
+    .top_375{
+        top: 375px;
+    }
+
+    .top_400{
+        top: 400px;
+    }
+
+    .top_450{
+        top: 450px;
+    }
+}
+
+//Estilos de portafolio 
+.grid{
+    width: 100%;
+    padding: 150px 0px;
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.grid-item{
+    width: 20%;
+    padding-bottom: 20%;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    background-color: red;
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+    -o-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    cursor:pointer;
+    margin-top: -90px;
+    @extend .tslow; 
+
+    &:before{
+        pointer-events: none;
+    }
+
+    &:nth-child(6), &:nth-child(15){
+        margin-left: 110px ;
+    }
+
+    a{
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &:hover{
+        &:before{
+            content: "";
+            position: absolute;
+            background-color: transparentize($color: $outline, $amount: .1);
+            background-image: url(../images/mas.png);
+            background-repeat: no-repeat;
+            background-size: 30%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+//estilos del contacto 
+#contacto{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+
+    ul{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li{
+            float: left;
+            padding: 0px;
+            margin: 0px; 
+        }
+
+        .google-maps{
+            width: 66.6%;
+            height: 100vh;
+            background-image: url("../images/mapa.PNG");
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .formulario{
+            width: 33.3%;
+            height: 100vh;
+            padding: 150px 50px;
+            background-color: white;
+        }
+
+    }
+
+}
+
+
+
+//imagenes del sitio 
+.rounded-circle{
+    width: 250px;
+    height: 250px;
+    @extend .rombo; 
+}
+    
+.rombo{
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+    -o-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    @extend .tslow; 
+    &:hover{
+        clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    }
+}
+
+.diamante{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    margin: 0px auto;
+    background-image: url("../images/pinata-navidenas.jpg");
+    background-size: 100%;
+    background-position: center center ;
+    background-repeat: no-repeat;
+    @extend .rombo;
+    z-index: 50;
+}
+/////////////////////////////////////////////////////////////////////////////
+
+//footer y Estilos
+footer{
+    margin-top: 60px;
+    width: 100%;
+    background-color: $base;
+    padding: 70px 0px;
+    -webkit-clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 100%, 0% 100%);
+    -o-clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 100%, 0% 100%); 
+    clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 100%, 0% 100%);
+    p{
+        margin: 0px;
+        padding: 0px;
+    }
+    .white{
+        color: transparentize($color: white, $amount: .6);
+    }
+    
+    ul{
+        padding: 0px;
+        margin: 0px;
+        list-style: none; 
+        li{
+           padding: 0px;
+            margin: 0px; 
+            color: transparentize($color: white, $amount: .8);
+        }
+    }
+
+
+
+    hr{
+        border-radius: 10px;
+        background-color: transparentize($color: white, $amount: .92);
+    }
+
+    .tumblr{
+        position: relative;
+        float: left;
+        margin: 0px;
+        padding: 0px;
+        width: 14%;
+        cursor: pointer;
+        opacity: .7;
+        @extend .tslow; 
+        :hover{
+            opacity: .1;
+        }
+    }
+
+    .copy{
+        padding: 10px 0px;
+        background-color: lighten($color: $base, $amount: 1);
+        text-align: left;
+    }
+    p, a{
+        margin: 0px;
+        padding: 0px;
+        color: transparentize($color: white, $amount: .7);
+    }
+    a{
+        opacity: .5;
+        color: $outline;
+        @extend .tslow; 
+        &:hover{
+            opacity: 1;
+            text-decoration: none;
+        }
+    }
+
+    .social-network{
+        margin-top: 5px;
+        li{
+            display: inline-block;
+            position: relative;
+            margin: 0px 7px;
+            
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            backface-visibility: hidden;
+            cursor: pointer;
+            @extend .tslow; 
+            i{
+                font-size: 22px;
+                color: transparentize($color: white, $amount: .8);
+                -webkit-transform: rotate(0deg)translate(-3px, 3px);
+                -ms-transform: rotate(0deg)translate(-3px, 3px);
+                -o-transform: rotate(0deg) translate(-3px, 3px);
+                transform: rotate(0deg) translate(-3px, 3px);
+                backface-visibility: hidden;
+                @extend .tslow; 
+
+            }
+
+            &:hover{
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+                background-color: white;
+                backface-visibility: hidden;
+
+                i{
+                    color: $outline;
+                    -webkit-transform: rotate(-45deg)translate(-3px, 3px);
+                    -ms-transform: rotate(-45deg)translate(-3px, 3px);
+                    -o-transform: rotate(-45deg) translate(-3px, 3px);
+                    transform: rotate(-45deg) translate(-3px, 3px)
+                }
+            }
+        }
+    }
+}

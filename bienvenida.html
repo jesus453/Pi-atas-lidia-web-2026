@@ -1,0 +1,46 @@
+<?php
+session_start();
+?> 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Piñatas Lidia</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor{
+            text-align: center;
+        }
+
+        a{
+            text-decoration: none;
+            background: #ff6500;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover{
+            background: #e55b00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Bienvenido a Piñatas Lidia</h1>
+    <a href="index.html?verificado=true">Iniciar sesión</a>
+</div>
+
+</body>
+</html>
