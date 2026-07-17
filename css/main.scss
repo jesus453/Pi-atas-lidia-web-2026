@@ -336,6 +336,24 @@ button{
     }
 }
 
+//Portafolio responsivo
+@media (max-width: 768px){
+    .grid{
+        padding: 80px 10px; 
+    }
+
+    .grid-item{
+        width: 50px; 
+        padding-bottom: 50%;
+        margin-top: -30px; 
+    }
+
+    .grid-item:nth-child(6),
+    .grid-item:nth-child(15){
+        margin-left: 0; 
+    }
+}
+
 //estilos del contacto 
 #contacto{
     width: 100%;
